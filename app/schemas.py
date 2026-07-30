@@ -16,3 +16,20 @@ class GamesResponse(BaseModel):
     steam_id: str
     game_count : int
     games: List[Game]
+
+class Achievement(BaseModel):
+    api_name: str
+    name: str
+    description: Optional[str] = None
+    achieved: bool
+    unlocked_time: Optional[int] = None
+    icon: Optional[str] = None
+    icon_gray: Optional[str] = None
+
+class AchievementsResponse(BaseModel):
+    steam_id: str
+    app_id: int
+    total_achievements: int
+    completed_achievements: int
+    completion_percentage: float
+    achievements: List[Achievement]
